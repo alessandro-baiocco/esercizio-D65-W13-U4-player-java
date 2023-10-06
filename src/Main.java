@@ -2,29 +2,21 @@ import File.Audio;
 import File.File;
 import File.Image;
 import File.Video;
+import Player.LuminosityVolume;
+
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
+
+import static Player.LuminosityVolume.*;
 
 public class Main {
     public static void main(String[] args){
 
         //variabili
-        int volume = 5;
-        int luminosita = 5;
         int lunghezzaArray = 0;
-        Image immagine = new Image();
         Scanner input = new Scanner(System.in);
         File[] arrayDiFile = new File[5];
-        //metodi
-//        public void aumentaLuminosita(int n){
-//            if(this.lightLevel + n <= 10){
-//                this.lightLevel += n;
-//            }else{
-//                System.out.println("NO TROPPO LUMINOSO , SONO CIECO");
-//            }
-//        }
-
 
 
 
@@ -65,19 +57,39 @@ public class Main {
                 }
             }
         }
-        System.out.println(Arrays.toString(arrayDiFile));
+
 
         //riproduci
 
+
         esternoSecondo:
         while (true){
-            System.out.println("che file vuoi Riprodurre? da 1 a 5 , (0 per uscire, 6 per regolare il volume attuale: "+ volume + " ,7 per regolare luminosita attuale : " + luminosita);
+            System.out.println(Arrays.toString(arrayDiFile));
+            System.out.println("che file vuoi Riprodurre? da 1 a 5 , (0 per uscire, 6 per regolare il volume ,7 per regolare luminosita");
             int userInput = Integer.parseInt(input.next());
             if(userInput <= 5 && userInput  > 0 ){
-//                if (Objects.equals(arrayDiFile[userInput + 1].toString(), "immagine"))
                 arrayDiFile[userInput - 1].play();
+            } else if (userInput == 6) {
+                System.out.println("vuoi aumentare o diminuire il volume (+ per aumentare , - per diminuire)");
+                String plusOMinus = input.next();
+                System.out.println("di quanto? da 0 a 10");
+                if(Objects.equals(plusOMinus, "+")){
+                    aumentaVolume( Integer.parseInt(input.next()));
+                }else {
+                    diminuisciVolume( Integer.parseInt(input.next()));
+                }
+            } else if (userInput == 7) {
+                System.out.println("vuoi aumentare o diminuire la luminosità (+ per aumentare , - per diminuire)");
+                String plusOMinus = input.next();
+                System.out.println("di quanto? da 0 a 10");
+                if(Objects.equals(plusOMinus, "+")){
+                    aumentaLuminosita( Integer.parseInt(input.next()));
+                }else {
+                    diminuisciLuminosita( Integer.parseInt(input.next()));
+                }
+
             }else if(userInput == 0){
-            System.out.println("finito?");
+            System.out.println("finito");
             break;
             }
             else{
