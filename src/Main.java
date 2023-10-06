@@ -74,15 +74,14 @@ public class Main {
 
 
         //riproduci
-
-
         esternoSecondo:
         while (true){
             //--------------------------------------------------------leggere files---------------------------------------------
             System.out.println(Arrays.toString(nomi));
             System.out.print("che file vuoi Riprodurre? da 1 a 5 ");
-            System.out.print("(0 per uscire | 6 per regolare il volume attuale :" + volume() + " ");
-            System.out.println(" | 7 per regolare luminosità attuale : " + luminosita() + " )");
+            System.out.print("(0 per uscire | 6 per regolare il volume attuale : (" + volume() + ") ");
+            System.out.println(" | 7 per regolare luminosità attuale : (" + luminosita() + ") )");
+            if(input.hasNextByte()){
             byte userInput = Byte.parseByte(input.next());
             if(userInput <= 5 && userInput  > 0 ){
                 if(arrayDiFile[userInput - 1] == null){
@@ -106,8 +105,8 @@ public class Main {
                         break;
                     }
                     case "-":{
-                        if(input.hasNextByte()) {
                         System.out.println("di quanto? da 0 a 10");
+                        if(input.hasNextByte()) {
                         diminuisciVolume(Byte.parseByte(input.next()));
                         }else {
                             System.out.println("nope");
@@ -133,8 +132,8 @@ public class Main {
                         break;
                     }
                     case "-":{
+                        System.out.println("di quanto? da 0 a 10");
                         if(input.hasNextByte()) {
-                            System.out.println("di quanto? da 0 a 10");
                             diminuisciLuminosita(Byte.parseByte(input.next()));
                         }else {
                             System.out.println("nope");
@@ -153,7 +152,10 @@ public class Main {
             else{
                 System.out.println("non è un numero valido");
             }
-    }
+    }else{
+            System.err.println("non è valido");
+            break;
+        }}
         input.close();
     }
 
