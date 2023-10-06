@@ -1,37 +1,37 @@
 package File;
 
-import Player.Volume;
+import Player.LuminosityVolume;
 
-public class Audio implements File{
+public class Audio extends LuminosityVolume implements File{
     int duration;
-    int volumeLevel;
+
 
     //costruttore
-
-    public Audio(int duration , int volumeLevel){
-        this.duration = duration;
-        this.volumeLevel = volumeLevel;
-
-    }
     public Audio(int duration ){
         this.duration = duration;
-        this.volumeLevel = 5;
     }
 
     //getters
     public int getDuration() {
         return this.duration;
     }
-    public int getVolumeLevel() {
-        return this.volumeLevel;
-    }
+
 
     @Override
     public String toString() {
         return "Audio ";
     }
     public void play(){
-        System.out.println("Audio ");
+        for (int i = 0 ; i < this.duration ; i++){
+        System.out.print("Audio ");
+            for (int j = 0 ; j < volume() ; j++){
+                System.out.print("!");
+            }
+            System.out.println(" ");
+        }
+
+        }
+
     }
 
-}
+

@@ -1,30 +1,16 @@
 package File;
 
-import Player.Luminosity;
+import Player.LuminosityVolume;
 
-public class Image implements File{
-    private int lightLevel;
+public class Image extends LuminosityVolume implements File{
     private final int duration = 1;
 
     //costruttore
 
-    public Image(int lightLevel){
-        this.lightLevel = lightLevel;
-    }
 
     public Image(){}
 
 
-    public void aumentaLuminosita(int n){
-        if(this.lightLevel + n < 10){
-            this.lightLevel += n;
-        }
-    }
-    public void diminuisciLuminosita(int n){
-        if(this.lightLevel - n > 0){
-            this.lightLevel -= n;
-        }
-    }
 
     //getters
     public int getDuration() {
@@ -33,11 +19,16 @@ public class Image implements File{
 
     @Override
     public String toString() {
-        return "Image ";
+        return "Immagine " ;
     }
 
     public void play(){
-        System.out.println("immagine ");
+        System.out.print("imagine ");
+        for (int i = 0 ; i < luminosita() ; i++){
+        System.out.print("*");
+        }
+        System.out.println(" ");
+
     }
 
 

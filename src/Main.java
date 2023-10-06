@@ -73,8 +73,9 @@ public class Main {
         while (true){
             System.out.println("che file vuoi Riprodurre? da 1 a 5 , (0 per uscire, 6 per regolare il volume attuale: "+ volume + " ,7 per regolare luminosita attuale : " + luminosita);
             int userInput = Integer.parseInt(input.next());
-            if(userInput <= 5 && userInput > 0 ){
-                arrayDiFile[userInput + 1].play();
+            if(userInput <= 5 && userInput  > 0 ){
+//                if (Objects.equals(arrayDiFile[userInput + 1].toString(), "immagine"))
+                arrayDiFile[userInput - 1].play();
             }else if(userInput == 0){
             System.out.println("finito?");
             break;
@@ -114,7 +115,5 @@ public class Main {
 
 
 
-    private static void whilePerArray(Scanner input){
 
-    }
 }

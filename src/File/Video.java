@@ -1,23 +1,15 @@
 package File;
+import Player.LuminosityVolume;
 
-import Player.Luminosity;
-import Player.Volume;
-
-public class Video implements File {
+public class Video extends LuminosityVolume implements File {
     int duration;
-    int volumeLevel;
-    int lightLevel;
+
+
 
     //costruttori
-    public Video(int duration , int volumeLevel , int lightLevel){
-        this.duration = duration;
-        this.volumeLevel = volumeLevel;
-        this.lightLevel = lightLevel;
-    }
+
     public Video(int duration ){
         this.duration = duration;
-        this.volumeLevel = 5;
-        this.lightLevel = 5;
     }
 
 
@@ -25,12 +17,7 @@ public class Video implements File {
     public int getDuration() {
         return this.duration;
     }
-    public int getLightLevel() {
-        return this.lightLevel;
-    }
-    public int getVolumeLevel() {
-        return this.volumeLevel;
-    }
+
 
 
     @Override
@@ -38,7 +25,17 @@ public class Video implements File {
         return "Video ";
     }
     public void play(){
-        System.out.println("video ");
+        for (int i = 0 ; i < this.duration ; i++){
+        System.out.print("video " );
+        for (int j = 0 ; j < volume() ; j++){
+        System.out.print("!");
+        }
+        System.out.print(" ");
+        for (int n = 0 ; n < luminosita() ; n++){
+            System.out.print("*");
+        }
+        System.out.println(" ");
+    }
     }
 
 }
