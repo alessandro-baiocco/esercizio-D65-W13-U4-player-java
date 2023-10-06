@@ -3,6 +3,7 @@ import Player.LuminosityVolume;
 
 public class Video extends LuminosityVolume implements File {
     int duration;
+    private final String type = "Video";
 
 
 
@@ -16,6 +17,10 @@ public class Video extends LuminosityVolume implements File {
     //getters
     public int getDuration() {
         return this.duration;
+    }
+
+    public String getType() {
+        return this.type;
     }
 
 
@@ -38,5 +43,8 @@ public class Video extends LuminosityVolume implements File {
     }
     }
 
+    @Override
+    public void show() {
 
+    }
 }

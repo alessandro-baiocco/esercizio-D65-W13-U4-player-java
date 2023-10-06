@@ -17,9 +17,7 @@ public class Main {
         int lunghezzaArray = 0;
         Scanner input = new Scanner(System.in);
         File[] arrayDiFile = new File[5];
-
-
-
+        Image primo = new Image();
         //creazione file
 
         System.out.println("inserire :q per uscire");
@@ -64,12 +62,19 @@ public class Main {
 
         esternoSecondo:
         while (true){
+            //--------------------------------------------------------leggere files---------------------------------------------
             System.out.println(Arrays.toString(arrayDiFile));
-            System.out.println("che file vuoi Riprodurre? da 1 a 5 , (0 per uscire, 6 per regolare il volume ,7 per regolare luminosita");
+            System.out.print("che file vuoi Riprodurre? da 1 a 5 ");
+            System.out.println("(0 per uscire, 6 per regolare il volume ,7 per regolare luminosità");
             int userInput = Integer.parseInt(input.next());
             if(userInput <= 5 && userInput  > 0 ){
+                if(!Objects.equals(arrayDiFile[userInput - 1].getType(), "Image")){
                 arrayDiFile[userInput - 1].play();
+                }else {
+                arrayDiFile[userInput - 1].show();
+                }
             } else if (userInput == 6) {
+                //------------------------------------------------------------Volume------------------------------------
                 System.out.println("vuoi aumentare o diminuire il volume (+ per aumentare , - per diminuire)");
                 String plusOMinus = input.next();
                 System.out.println("di quanto? da 0 a 10");
@@ -78,6 +83,8 @@ public class Main {
                 }else {
                     diminuisciVolume( Integer.parseInt(input.next()));
                 }
+
+                //---------------------------------------------luminosità----------------------------------------------------
             } else if (userInput == 7) {
                 System.out.println("vuoi aumentare o diminuire la luminosità (+ per aumentare , - per diminuire)");
                 String plusOMinus = input.next();
@@ -87,7 +94,7 @@ public class Main {
                 }else {
                     diminuisciLuminosita( Integer.parseInt(input.next()));
                 }
-
+                //---------------------------------------uscire------------------------------------
             }else if(userInput == 0){
             System.out.println("finito");
             break;
@@ -98,34 +105,5 @@ public class Main {
     }
         input.close();
     }
-
-
-
-
-
-//        Image primo = new Image();
-//        Audio secondo = new Audio(5 );
-//        Video terzo = new Video(5 , 4 , 2);
-//
-//
-//        int volteDaRiprodurre = secondo.getDuration();
-//        int volume = secondo.getVolumeLevel();
-//        int luminosita = terzo.getLightLevel();
-//
-//
-//        for (int i = 0 ; i < volteDaRiprodurre; i++){
-//            System.out.print(terzo);
-//        for(int j = 0 ; j < volume; j++){
-//            System.out.print("!");
-//        }
-//            System.out.print(" ");
-//        for(int n = 0 ; n < luminosita; n++){
-//            System.out.print("*");
-//        }
-//            System.out.println(" ");
-//        }
-
-
-
 
 }

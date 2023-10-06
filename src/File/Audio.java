@@ -4,6 +4,7 @@ import Player.LuminosityVolume;
 
 public class Audio extends LuminosityVolume implements File{
     int duration;
+    private final String type = "Audio";
 
 
     //costruttore
@@ -14,6 +15,10 @@ public class Audio extends LuminosityVolume implements File{
     //getters
     public int getDuration() {
         return this.duration;
+    }
+
+    public String getType() {
+        return this.type;
     }
 
 
@@ -32,6 +37,8 @@ public class Audio extends LuminosityVolume implements File{
 
         }
 
-    }
+    @Override
+    public void show() {}
+}
 
 
