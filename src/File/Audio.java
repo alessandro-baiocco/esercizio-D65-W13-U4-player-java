@@ -3,13 +3,13 @@ package File;
 import Player.LuminosityVolume;
 
 public class Audio extends LuminosityVolume implements File{
-    int duration;
+    private final byte duration;
     private final String type = "Audio";
-    private String name;
+    private final String name;
 
 
     //costruttore
-    public Audio(int duration , String name){
+    public Audio(byte duration , String name){
         this.duration = duration;
         this.name = name;
     }

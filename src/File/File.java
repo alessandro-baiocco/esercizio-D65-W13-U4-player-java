@@ -7,4 +7,5 @@ public interface  File {
     public void show();
 
     public String getType() ;
+
 }

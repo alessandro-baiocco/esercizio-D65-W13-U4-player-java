@@ -1,42 +1,50 @@
 package Player;
 
 public class LuminosityVolume {
-    private static int lightLevel = 3;
-    private static int volumeLevel = 3;
+    private static byte lightLevel = 3;
+    private static byte volumeLevel = 3;
 
 //setters
-    public static void aumentaLuminosita(int n){
+    public static void aumentaLuminosita(byte n){
         if(lightLevel + n < 10){
             lightLevel +=10;
+        }else{
+            System.out.println("NO ,è TROPPO LUMINOSO STO BRUCIANDO");
         }
     }
-    public static void diminuisciLuminosita(int n){
+    public static void diminuisciLuminosita(byte n){
         if(lightLevel - n > 0){
             lightLevel -= n;
+        }else {
+            System.out.println("è troppo buio");
         }
     }
 
 
     //setters
-    public static void aumentaVolume(int n){
+    public static void aumentaVolume(byte n){
         if(volumeLevel + n <= 10){
             volumeLevel += n;
+        }else {
+            System.out.println("NON SARAI MICA SORDO");
         }
     }
-    public static void diminuisciVolume(int n){
-        if(volumeLevel - n > 0){
+    public static void diminuisciVolume(byte n){
+        if(volumeLevel - n >= 0){
             volumeLevel -= n;
+        }else {
+            System.out.println("non posso generare rumore negativo");
         }
     }
 
-
-    public static int volume(){
+    //getters
+    public static byte volume(){
         return volumeLevel;
     }
 
 
-    //getters
-    public static int luminosita(){
+
+    public static byte luminosita(){
         return lightLevel;
     }
 

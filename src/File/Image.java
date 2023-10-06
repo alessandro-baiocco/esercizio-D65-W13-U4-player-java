@@ -5,7 +5,7 @@ import Player.LuminosityVolume;
 import java.util.Objects;
 
 public class Image extends LuminosityVolume implements File{
-    private final int duration = 1;
+    private final byte duration = 1;
 
     private final String type = "Image";
 
