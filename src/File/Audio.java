@@ -2,7 +2,7 @@ package File;
 
 import Player.Volume;
 
-public class Audio extends Volume {
+public class Audio extends File {
     int duration;
     int volumeLevel;
 

@@ -2,7 +2,7 @@ package File;
 
 import Player.Luminosity;
 
-public class Image implements Luminosity {
+public class Image extends File implements Luminosity  {
     private int lightLevel;
     private final int duration = 1;
 

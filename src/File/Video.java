@@ -3,7 +3,7 @@ package File;
 import Player.Luminosity;
 import Player.Volume;
 
-public class Video extends Volume implements Luminosity {
+public class Video extends File implements Luminosity {
     int duration;
     int volumeLevel;
     int lightLevel;
@@ -21,8 +21,10 @@ public class Video extends Volume implements Luminosity {
     }
 
     public void aumentaLuminosita(int n){
-        if(this.lightLevel + n < 10){
+        if(this.lightLevel + n <= 10){
             this.lightLevel += n;
+        }else{
+            System.out.println("NO TROPPO LUMINOSO , SONO CIECO");
         }
     }
     public void diminuisciLuminosita(int n){
