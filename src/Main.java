@@ -21,15 +21,16 @@ public class Main {
 
         //creazione file
 
-        System.out.println("inserire :q per uscire");
         esternoPrimo:
         while(lunghezzaArray < 5){
-            System.out.println("che tipo di file vuoi creare? img, audio o video ");
+            System.out.println("che tipo di file vuoi creare? img, audio o video (inserire :q per uscire) ");
             String tipoFile = input.next().toLowerCase();
             switch (tipoFile){
                 case "img":{
                     System.out.println("nome ?");
-                    arrayDiFile[lunghezzaArray] = new Image(input.next());
+                    String nomeFile = input.next();
+                    nomi[lunghezzaArray] = nomeFile;
+                    arrayDiFile[lunghezzaArray] = new Image(nomeFile);
                     lunghezzaArray++;
                     break;
                 }
@@ -39,6 +40,7 @@ public class Main {
                     System.out.println("durata?(in s)");
                     if(input.hasNextByte()){
                     arrayDiFile[lunghezzaArray] = new Audio((byte) Math.abs(Byte.parseByte(input.next())), nomeFile);
+                    nomi[lunghezzaArray] = nomeFile;
                     lunghezzaArray++;
                     } else {
                         System.out.println("non è un numero intero");
@@ -51,6 +53,7 @@ public class Main {
                     System.out.println("durata?(in s)");
                     if(input.hasNextInt()){
                     arrayDiFile[lunghezzaArray] = new Video(Math.abs(Integer.parseInt(input.next())) , nomeFile);
+                    nomi[lunghezzaArray] = nomeFile;
                     lunghezzaArray++;
                     }
                     else {
@@ -76,11 +79,11 @@ public class Main {
         esternoSecondo:
         while (true){
             //--------------------------------------------------------leggere files---------------------------------------------
-            System.out.println(Arrays.toString(arrayDiFile));
+            System.out.println(Arrays.toString(nomi));
             System.out.print("che file vuoi Riprodurre? da 1 a 5 ");
-            System.out.print("(0 per uscire, 6 per regolare il volume attuale :" + volume());
-            System.out.println(" ,7 per regolare luminosità attuale : " + luminosita() + " )");
-            byte userInput = (byte) Byte.parseByte(input.next());
+            System.out.print("(0 per uscire | 6 per regolare il volume attuale :" + volume() + " ");
+            System.out.println(" | 7 per regolare luminosità attuale : " + luminosita() + " )");
+            byte userInput = Byte.parseByte(input.next());
             if(userInput <= 5 && userInput  > 0 ){
                 if(arrayDiFile[userInput - 1] == null){
                 System.out.println("ops , non c'e niente li");

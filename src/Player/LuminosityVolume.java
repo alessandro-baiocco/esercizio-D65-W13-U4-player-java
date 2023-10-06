@@ -1,13 +1,13 @@
 package Player;
 
-public class LuminosityVolume {
+public abstract class LuminosityVolume {
     private static byte lightLevel = 3;
     private static byte volumeLevel = 3;
 
 //setters
     public static void aumentaLuminosita(byte n){
         if(lightLevel + n < 10){
-            lightLevel +=10;
+            lightLevel += n;
         }else{
             System.out.println("NO ,è TROPPO LUMINOSO STO BRUCIANDO");
         }
