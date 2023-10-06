@@ -30,5 +30,14 @@ public class Video extends Volume implements Luminosity {
             this.lightLevel -= n;
         }
     }
-
+    //getters
+    public int getDuration() {
+        return this.duration;
+    }
+    public int getLightLevel() {
+        return this.lightLevel;
+    }
+    public int getVolumeLevel() {
+        return this.volumeLevel;
+    }
 }

@@ -26,5 +26,10 @@ public class Image implements Luminosity {
         }
     }
 
+    //getters
+    public int getDuration() {
+        return this.duration;
+    }
+
 
 }
