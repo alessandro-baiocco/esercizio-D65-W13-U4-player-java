@@ -2,7 +2,7 @@ package File;
 
 import Player.Luminosity;
 
-public class Image extends File implements Luminosity  {
+public class Image implements File{
     private int lightLevel;
     private final int duration = 1;
 
@@ -34,6 +34,10 @@ public class Image extends File implements Luminosity  {
     @Override
     public String toString() {
         return "Image ";
+    }
+
+    public void play(){
+        System.out.println("immagine ");
     }
 
 

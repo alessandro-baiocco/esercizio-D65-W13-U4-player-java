@@ -1,4 +1,7 @@
 package File;
 
-public abstract class File {
+public interface  File {
+
+    public void play();
+
 }

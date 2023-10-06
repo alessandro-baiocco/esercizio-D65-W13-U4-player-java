@@ -2,7 +2,7 @@ package File;
 
 import Player.Volume;
 
-public class Audio extends File {
+public class Audio implements File{
     int duration;
     int volumeLevel;
 
@@ -30,4 +30,8 @@ public class Audio extends File {
     public String toString() {
         return "Audio ";
     }
+    public void play(){
+        System.out.println("Audio ");
+    }
+
 }
