@@ -3,20 +3,29 @@ import Player.LuminosityVolume;
 
 public class Video extends LuminosityVolume implements File {
     int duration;
+
     private final String type = "Video";
+
+    private final String  name;
 
 
 
     //costruttori
 
-    public Video(int duration ){
+    public Video(int duration , String name ){
         this.duration = duration;
+        this.name = name;
     }
+
+
 
 
     //getters
     public int getDuration() {
         return this.duration;
+    }
+    public String getName() {
+        return this.name;
     }
 
     public String getType() {
@@ -31,7 +40,7 @@ public class Video extends LuminosityVolume implements File {
     }
     public void play(){
         for (int i = 0 ; i < this.duration ; i++){
-        System.out.print("video " );
+        System.out.print("video " + this.name + " ");
         for (int j = 0 ; j < volume() ; j++){
         System.out.print("!");
         }

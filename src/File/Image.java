@@ -6,18 +6,28 @@ import java.util.Objects;
 
 public class Image extends LuminosityVolume implements File{
     private final int duration = 1;
+
     private final String type = "Image";
+
+    private final String name;
 
     //costruttore
 
 
-    public Image(){}
+    public Image(String name){
+        this.name = name;
+    }
+
 
 
 
     //getters
     public int getDuration() {
         return this.duration;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public String getType() {
@@ -34,7 +44,7 @@ public class Image extends LuminosityVolume implements File{
         System.out.println("errore");
     }
     public void show(){
-        System.out.print("immagine ");
+        System.out.print("immagine " + this.name + " ");
         for (int i = 0 ; i < luminosita() ; i++){
             System.out.print("*");
         }

@@ -17,33 +17,47 @@ public class Main {
         int lunghezzaArray = 0;
         Scanner input = new Scanner(System.in);
         File[] arrayDiFile = new File[5];
-        Image primo = new Image();
+
         //creazione file
 
         System.out.println("inserire :q per uscire");
         esternoPrimo:
         while(lunghezzaArray < 5){
-            System.out.println("che tipo di file vuoi creare? Img,Audio o Video ");
-            String tipoFile = input.next();
+            System.out.println("che tipo di file vuoi creare? img, audio o video ");
+            String tipoFile = input.next().toLowerCase();
             switch (tipoFile){
-                case "Img":{
-                    arrayDiFile[lunghezzaArray] = new Image();
+                case "img":{
+                    System.out.println("nome ?");
+                    arrayDiFile[lunghezzaArray] = new Image(input.next());
                     lunghezzaArray++;
                     break;
                 }
-                case "Audio":{
+                case "audio":{
+                    System.out.println("nome ?");
+                    String nomeFile = input.next();
                     System.out.println("durata?(in s)");
-                    int durata = Integer.parseInt(input.next());
-                    arrayDiFile[lunghezzaArray] = new Audio(durata);
+                    if(input.hasNextInt()){
+                    arrayDiFile[lunghezzaArray] = new Audio(Math.abs(Integer.parseInt(input.next())) , nomeFile);
                     lunghezzaArray++;
                     break;
+                    } else {
+                        System.out.println("non è un numero intero");
+                        break;
+                    }
                 }
-                case "Video":{
+                case "video":{
+                    System.out.println("nome ?");
+                    String nomeFile = input.next();
                     System.out.println("durata?(in s)");
-                    int durata = Integer.parseInt(input.next());
-                    arrayDiFile[lunghezzaArray] = new Video(durata);
+                    if(input.hasNextInt()){
+                    arrayDiFile[lunghezzaArray] = new Video(Math.abs(Integer.parseInt(input.next())) , nomeFile);
                     lunghezzaArray++;
                     break;
+                    }
+                    else {
+                        System.out.println("non è un numero intero");
+                        break;
+                    }
                 }
                 case ":q":{
                     System.out.println("finito?");
@@ -65,7 +79,7 @@ public class Main {
             //--------------------------------------------------------leggere files---------------------------------------------
             System.out.println(Arrays.toString(arrayDiFile));
             System.out.print("che file vuoi Riprodurre? da 1 a 5 ");
-            System.out.println("(0 per uscire, 6 per regolare il volume ,7 per regolare luminosità");
+            System.out.println("(0 per uscire, 6 per regolare il volume ,7 per regolare luminosità)");
             int userInput = Integer.parseInt(input.next());
             if(userInput <= 5 && userInput  > 0 ){
                 if(!Objects.equals(arrayDiFile[userInput - 1].getType(), "Image")){
