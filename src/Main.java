@@ -10,9 +10,15 @@ public class Main {
         int volteDaRiprodurre = secondo.getDuration();
         int volume = secondo.getVolumeLevel();
 
-        for(int i = 0 ; i < volteDaRiprodurre; i++){
-            System.out.println(secondo);
+        for (int i = 0 ; i < volteDaRiprodurre; i++){
+            System.out.print(secondo);
+        for(int j = 0 ; j < volume; j++){
+            System.out.print("!");
         }
+            System.out.println(" ");
+        }
+
+
 
 
 

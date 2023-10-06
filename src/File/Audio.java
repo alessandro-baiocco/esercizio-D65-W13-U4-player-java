@@ -26,4 +26,8 @@ public class Audio extends Volume {
         return this.volumeLevel;
     }
 
+    @Override
+    public String toString() {
+        return "Audio ";
+    }
 }

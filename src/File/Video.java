@@ -40,4 +40,10 @@ public class Video extends Volume implements Luminosity {
     public int getVolumeLevel() {
         return this.volumeLevel;
     }
+
+
+    @Override
+    public String toString() {
+        return "Video ";
+    }
 }

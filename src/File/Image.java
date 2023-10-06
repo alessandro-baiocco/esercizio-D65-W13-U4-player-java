@@ -31,5 +31,10 @@ public class Image implements Luminosity {
         return this.duration;
     }
 
+    @Override
+    public String toString() {
+        return "Image ";
+    }
+
 
 }
